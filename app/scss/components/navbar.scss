@@ -1,0 +1,13 @@
+@use '../util/breakpoints.scss' as *;
+@use '../util/functions.scss' as *;
+@use '../util/mixins.scss' as *;
+
+
+body {
+    background-color: var(--very-light-gray);
+}
+
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+}

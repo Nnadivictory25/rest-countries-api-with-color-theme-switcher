@@ -1,0 +1,111 @@
+@use '../util/breakpoints.scss' as *;
+@use '../util/functions.scss' as *;
+@use '../util/mixins.scss' as *;
+
+
+.topElementsCtn {
+
+    form {
+        input {
+            border: 1px solid #fff;
+            &:focus {
+                outline: none;
+                border: 1px solid var(--very-dark-blue);
+            }
+        }
+    }
+
+    .filter {
+        @include transition;
+        border: 1px solid #fff;
+        &.active {
+            border: 1px solid var(--very-dark-blue);
+        }
+    }
+
+        ul {
+            li {
+                @include transition;
+                &:hover {
+                    cursor: pointer;
+                    background-color: var(--very-light-gray);
+                }
+            }
+        }
+}
+
+.countries__ctn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @include breakpoint-down(medium) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint-down(small) {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        cursor: pointer !important;
+        @include transition;
+
+        &:hover {
+            transform: scale(1.05) !important;
+        }
+    }
+}
+
+body  {
+    @include transition;
+
+    &.dark {
+        color: #fff !important;
+        background-color: var(--very-dark-blue) !important;
+
+        .navbar {
+            background-color: var(--dark-blue) !important;
+        }
+
+        .topElementsCtn {
+
+            form {
+                input {
+                    background-color: var(--dark-blue) !important;
+                    border: none !important;
+
+                    &:focus {
+                        border: 1px solid var(--very-light-gray) !important;
+                    }
+                }
+            }
+
+            .filter_ctn {
+                .filter {
+                    background-color: var(--dark-blue) !important;
+                    border: 1px solid var(--dark-blue) !important;
+                    &.active {
+                        border: 1px solid var(--very-light-gray) !important;
+                    }
+                }
+                .list {
+                    background-color: var(--dark-blue) !important;
+
+                    li {
+
+                        &:hover {
+                            background-color: var(--very-dark-blue);
+                        }
+                    }
+                }
+            }
+        }
+
+        .countries__ctn {
+            .card {
+                background-color: var(--dark-blue) !important;
+            }
+        }
+
+    }
+}
