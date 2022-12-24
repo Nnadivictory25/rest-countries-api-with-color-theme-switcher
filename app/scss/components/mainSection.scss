@@ -108,5 +108,13 @@ body  {
             }
         }
 
+        button {
+            background-color: var(--dark-blue) !important;
+        }
+
     }
+}
+
+.transition {
+    transition: all .15s ease-in !important;
 }

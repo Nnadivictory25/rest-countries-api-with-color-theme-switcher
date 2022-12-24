@@ -4,5 +4,5 @@
 // This is where mixins will be created . 
 
 @mixin transition {
-    transition: all .15s ease-in-out;
+    transition: all .07s ease-in-out !important;
 }

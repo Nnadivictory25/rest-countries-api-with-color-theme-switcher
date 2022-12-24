@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
 
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
@@ -35,40 +37,43 @@
     </nav>
 
     <main>
-
-      <div class="topElementsCtn px-6 lg:px-20 lg:flex justify-between mb-14">
-        <form id="form" class="mb-12 lg:mb-0 relative lg:w-2/5" action="#" method="post">
-          <input class="shadow-md w-full py-4 pl-20 rounded-md" placeholder="Search for a country..." type="search" name="search" id="search">
-          <i class="absolute bi bi-search top-4 left-8"></i>
-        </form>
-
-        <div class="filter_ctn lg:w-1/4 lg:mr-[-70px] z-50 relative">
-          <div class="filter shadow-md bg-white w-2/3 py-4 px-7 font-semibold rounded-md cursor-pointer">
-            <div class="filter__header flex justify-between items-center">
-              <p class="filter__header--text">Filter by region</p>
-              <i class="bi bi-chevron-down font-bold text-lg"></i>
+      <div class="mainCtn">
+        <div class="topElementsCtn px-6 lg:px-20 lg:flex justify-between mb-14">
+          <form id="form" class="mb-12 lg:mb-0 relative lg:w-2/5" action="#" method="post">
+            <input class="shadow-md w-full py-4 pl-20 rounded-md" placeholder="Search for a country..." type="search" name="search" id="search">
+            <i class="absolute bi bi-search top-4 left-8"></i>
+          </form>
+  
+          <div class="filter_ctn lg:w-1/4 lg:mr-[-70px] z-50 relative">
+            <div class="filter shadow-md bg-white w-2/3 py-4 px-7 font-semibold rounded-md cursor-pointer">
+              <div class="filter__header flex justify-between items-center">
+                <p class="filter__header--text">Filter by region</p>
+                <i class="bi bi-chevron-down font-bold text-lg"></i>
+              </div>
             </div>
+  
+            <ul class="list mt-1 py-4 w-2/3 shadow-md hidden absolute bg-white font-semibold rounded-md">
+              <li class="font-semibold py-2 lg:py-1 w-full px-7">Africa</li>
+              <li class="font-semibold py-2 lg:py-1 w-full px-7">Americas</li>
+              <li class="font-semibold py-2 lg:py-1 w-full px-7">Asia</li>
+              <li class="font-semibold py-2 lg:py-1 w-full px-7">Europe</li>
+              <li class="font-semibold py-2 lg:py-1 w-full px-7">Oceania</li>
+              <li class="font-semibold text-red-500 border-y-2 py-2 mt-2 lg:py-1 w-full px-7">Reset</li>
+            </ul>
+  
           </div>
-
-          <ul class="list mt-1 py-4 w-2/3 shadow-md invisible absolute bg-white font-semibold rounded-md">
-            <li class="font-semibold py-2 lg:py-1 w-full px-7">Africa</li>
-            <li class="font-semibold py-2 lg:py-1 w-full px-7">Americas</li>
-            <li class="font-semibold py-2 lg:py-1 w-full px-7">Asia</li>
-            <li class="font-semibold py-2 lg:py-1 w-full px-7">Europe</li>
-            <li class="font-semibold py-2 lg:py-1 w-full px-7">Oceania</li>
-          </ul>
-
+  
         </div>
-
+  
+        <div class="countries__ctn  px-9 lg:px-12 container mx-auto pb-8">
+  
+          <div class="container mx-auto absolute inset-x-0 font-semibold text-xl">
+            <p class="self-center text-center mx-auto">Loading countries data...</p>
+          </div>
+  
+        </div>
       </div>
 
-      <div class="countries__ctn  px-9 lg:px-12 container mx-auto ">
-
-        <div class="container mx-auto absolute inset-x-0 font-semibold text-xl">
-          <p class="self-center text-center mx-auto">Loading countries data...</p>
-        </div>
-
-      </div>
 
     </main>
 
