@@ -25,7 +25,7 @@ let updateTheme = () => {
     if (darkMode === 'true') {
         body.classList.add('dark')
 
-        switchCtn.innerHTML = `
+        switchCtn.innerHTML = /*html*/`
         <i class="bi bi-brightness-high-fill"></i>
         <p class="font-semibold">Light mode</p>
         `;
@@ -52,7 +52,7 @@ fetch('https://restcountries.com/v3.1/all')
         })
         countries.map(country => {
             const { name, flags, region, capital, population } = country
-            container.innerHTML += `
+            container.innerHTML += /*html*/ `
             <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
             <div class="card__upper w-full h-[11rem] overflow-hidden">
               <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
@@ -93,7 +93,7 @@ switchCtn.addEventListener("click", () => {
     body.classList.add("dark");
     darkMode = 'true';
     localStorage.setItem("darkMode", darkMode);
-    switchCtn.innerHTML = `
+    switchCtn.innerHTML = /*html*/`
         <i class="bi bi-brightness-high-fill"></i>
         <p class="font-semibold">Light mode</p>
         `;
@@ -101,10 +101,10 @@ switchCtn.addEventListener("click", () => {
     darkMode = 'false';
     localStorage.setItem("darkMode", darkMode);
     body.classList.remove("dark");
-    switchCtn.innerHTML = `
+    switchCtn.innerHTML = /*html*/`
         <i class="bi bi-moon font-semibold"></i>
         <p class="font-semibold">Dark mode</p>
-                `;
+     `;
   }
 });
 
@@ -144,7 +144,7 @@ let updateUIFromRegion = (region) => {
         container.innerHTML = ''
         currentRegionCountries.map(country => {
             const { name, flags, region, capital, population } = country
-            container.innerHTML += `
+            container.innerHTML += /*html*/`
             <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
             <div class="card__upper w-full h-[11rem] overflow-hidden">
               <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
@@ -164,7 +164,7 @@ let updateUIFromRegion = (region) => {
         list.classList.add('hidden')
         if (filterHeaderText.textContent !== 'Filter by region') {
             resetFilterText()
-            container.innerHTML = `
+            container.innerHTML = /*html*/`
             <div class="container mx-auto absolute inset-x-0 font-semibold text-xl">
             <p class="self-center text-center mx-auto">Loading countries data...</p>
           </div>
@@ -183,7 +183,7 @@ let updateUIAll = () => {
     container.innerHTML = ''
     countries.map(country => {
         const { name, flags, region, capital, population } = country
-        container.innerHTML += `
+        container.innerHTML += /*html*/`
         <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
         <div class="card__upper w-full h-[11rem] overflow-hidden">
           <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
@@ -232,7 +232,7 @@ let updateUIfromSearch = (word) => {
     container.innerHTML = ''
     searchedCountry.map(country => {
         const { name, flags, region, capital, population } = country
-        container.innerHTML += `
+        container.innerHTML += /*html*/`
         <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
         <div class="card__upper w-full h-[11rem] overflow-hidden">
           <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
@@ -250,7 +250,7 @@ let updateUIfromSearch = (word) => {
     })
 
     if (searchedCountry.length === 0) {
-        container.innerHTML = `
+        container.innerHTML = /*html*/`
         <div class="container mx-auto absolute inset-x-0 font-semibold text-xl">
         <p class="self-center text-center mx-auto">No countries found :(</p>
       </div>
@@ -275,7 +275,7 @@ let getBorders = (country = currentCountry) => {
             countryBorders.push(borderCountry)
         }
         countryBorders.forEach(countryName => {
-            html += `<button onclick="renderDetailPage('${countryName}')" class=" gotoBorder bg-white py-2 px-4 rounded-md shadow-md font-medium flex items-center gap-x-3 transition hover:text-zinc-400"><span class="animate__animated animate__slideInDown">${countryName}</span></button>
+            html +=/*html*/ `<button onclick="renderDetailPage('${countryName}')" class=" gotoBorder bg-white py-2 px-4 rounded-md shadow-md font-medium flex items-center gap-x-3 transition hover:text-zinc-400"><span class="animate__animated animate__slideInDown">${countryName}</span></button>
             `
         })
     }
@@ -309,8 +309,8 @@ let renderDetailPage = (countryName) => {
 
     
 
-    mainEle.innerHTML = `
-            <div class="detailsCtn">
+    mainEle.innerHTML = /*html*/`
+        <div class="detailsCtn">
             <article class="backBtnCtn absolute top-28 px-9">
                 <button onclick="window.location.reload()" id="backBtn" class="backBtn bg-white py-2 px-10 rounded-md shadow-md font-semibold flex items-center gap-x-3"><i class="bi bi-arrow-left text-lg"></i> Back</button>
             </article>
