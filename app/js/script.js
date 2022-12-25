@@ -21,7 +21,17 @@ const mainCtn = document.querySelector('.mainCtn')
 const mainEle = document.querySelector('main')
 
 
+let updateTheme = () => {
+    if (darkMode === 'true') {
+        body.classList.add('dark')
 
+        switchCtn.innerHTML = `
+        <i class="bi bi-brightness-high-fill"></i>
+        <p class="font-semibold">Light mode</p>
+        `;
+    }
+}
+updateTheme()
 
 
 fetch('https://restcountries.com/v3.1/all')
@@ -78,36 +88,18 @@ function sortAlphabetically(a, b) {
   return comparison;
 }
 
-
-let updateThemeState = () => {
-    localStorage.setItem('darkMode', darkMode)
-    if (darkMode) {
-        body.classList.add('dark')
-        switchCtn.innerHTML = `
-        <i class="bi bi-brightness-high-fill"></i>
-        <p class="font-semibold">Light mode</p>
-        `;
-    } else {
-        body.classList.remove('dark')
-        switchCtn.innerHTML = `
-        <i class="bi bi-moon font-semibold"></i>
-        <p class="font-semibold">Dark mode</p>
-        `;
-    }
-} 
-
 switchCtn.addEventListener("click", () => {
-  if (!darkMode) {
+  if (!darkMode || darkMode === "false") {
     body.classList.add("dark");
-    darkMode = !darkMode;
-    updateThemeState()
+    darkMode = 'true';
+    localStorage.setItem("darkMode", darkMode);
     switchCtn.innerHTML = `
         <i class="bi bi-brightness-high-fill"></i>
         <p class="font-semibold">Light mode</p>
         `;
   } else {
-    darkMode = !darkMode;
-    updateThemeState()
+    darkMode = 'false';
+    localStorage.setItem("darkMode", darkMode);
     body.classList.remove("dark");
     switchCtn.innerHTML = `
         <i class="bi bi-moon font-semibold"></i>
@@ -355,5 +347,3 @@ let renderDetailPage = (countryName) => {
         </div>
     `
 }
-
-updateThemeState()
