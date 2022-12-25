@@ -141,6 +141,7 @@ let updateUIFromRegion = (region) => {
             }
         }).filter(country => country !== undefined)
         
+        searchInput.value = ''
         container.innerHTML = ''
         currentRegionCountries.map(country => {
             const { name, flags, region, capital, population } = country
@@ -216,7 +217,17 @@ searchInput.addEventListener('keyup', (e) => {
     } else {
         updateUIAll()
     }
+})
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    inputValue = searchInput.value
+    if (inputValue.length !== 0) {
+        resetFilterText()
+        updateUIfromSearch(inputValue)
+    } else {
+        updateUIAll()
+    }
 })
 
 
@@ -312,7 +323,7 @@ let renderDetailPage = (countryName) => {
     mainEle.innerHTML = /*html*/`
         <div class="detailsCtn">
             <article class="backBtnCtn absolute top-28 px-9">
-                <button onclick="window.location.reload()" id="backBtn" class="backBtn bg-white py-2 px-10 rounded-md shadow-md font-semibold flex items-center gap-x-3"><i class="bi bi-arrow-left text-lg"></i> Back</button>
+                <button onclick="window.location.reload()" id="backBtn" class="backBtn bg-white py-2 px-10 rounded-md shadow-md font-semibold flex items-center gap-x-3 transition hover:text-zinc-400"><i class="bi bi-arrow-left text-lg"></i> Back</button>
             </article>
     
             <section class="countryDataCtn mt-28 lg:mt-36 lg:flex gap-x-28 px-9 pb-6 mx-auto">
