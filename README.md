@@ -59,7 +59,7 @@ Users should be able to:
 ### What I learned
 Learnt alot more about event handling and js array methods
 
-Like this script to get borders of a selected counrtry and generate HTML buttons based on those borders countries, if there is no border , trhen return 'None'
+Like this script to get borders of a selected counrtry and generate HTML buttons based on those borders countries, if there is no border , then return 'None'
 ```js
 let countryBorders = []
 let html = ``
