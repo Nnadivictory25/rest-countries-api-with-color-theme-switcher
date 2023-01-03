@@ -55,7 +55,7 @@ fetch('https://restcountries.com/v3.1/all')
             container.innerHTML += /*html*/ `
             <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
             <div class="card__upper w-full h-[11rem] overflow-hidden">
-              <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
+              <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="${name.common} flag" >
             </div>
             <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
               <p class="card__header font-bold pb-3">${name.common}</p>
@@ -148,7 +148,7 @@ let updateUIFromRegion = (region) => {
             container.innerHTML += /*html*/`
             <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
             <div class="card__upper w-full h-[11rem] overflow-hidden">
-              <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
+              <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="${name.common} flag" >
             </div>
             <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
               <p class="card__header font-bold pb-3">${name.common}</p>
@@ -187,7 +187,7 @@ let updateUIAll = () => {
         container.innerHTML += /*html*/`
         <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
         <div class="card__upper w-full h-[11rem] overflow-hidden">
-          <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
+          <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="${name.common} flag" >
         </div>
         <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
           <p class="card__header font-bold pb-3">${name.common}</p>
@@ -246,7 +246,7 @@ let updateUIfromSearch = (word) => {
         container.innerHTML += /*html*/`
         <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
         <div class="card__upper w-full h-[11rem] overflow-hidden">
-          <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
+          <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="${name.common} flag" >
         </div>
         <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
           <p class="card__header font-bold pb-3">${name.common}</p>
