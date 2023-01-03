@@ -53,9 +53,9 @@ fetch('https://restcountries.com/v3.1/all')
         countries.map(country => {
             const { name, flags, region, capital, population } = country
             container.innerHTML += /*html*/ `
-            <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
+            <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
             <div class="card__upper w-full h-[11rem] overflow-hidden">
-              <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
+              <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
             </div>
             <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
               <p class="card__header font-bold pb-3">${name.common}</p>
@@ -146,9 +146,9 @@ let updateUIFromRegion = (region) => {
         currentRegionCountries.map(country => {
             const { name, flags, region, capital, population } = country
             container.innerHTML += /*html*/`
-            <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
+            <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
             <div class="card__upper w-full h-[11rem] overflow-hidden">
-              <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
+              <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
             </div>
             <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
               <p class="card__header font-bold pb-3">${name.common}</p>
@@ -185,9 +185,9 @@ let updateUIAll = () => {
     countries.map(country => {
         const { name, flags, region, capital, population } = country
         container.innerHTML += /*html*/`
-        <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
+        <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
         <div class="card__upper w-full h-[11rem] overflow-hidden">
-          <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
+          <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
         </div>
         <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
           <p class="card__header font-bold pb-3">${name.common}</p>
@@ -244,9 +244,9 @@ let updateUIfromSearch = (word) => {
     searchedCountry.map(country => {
         const { name, flags, region, capital, population } = country
         container.innerHTML += /*html*/`
-        <div onclick="renderDetailPage(this.id)" id="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
+        <div onclick="renderDetailPage(this)" data-name="${name.common}" class="card shadow-md bg-white cursor-pointer overflow-hidden rounded-md">
         <div class="card__upper w-full h-[11rem] overflow-hidden">
-          <img class="w-full h-full objecct-fit rounded-t-md" src=${flags.png} alt="" loading="lazy">
+          <img class="w-full h-full objecct-fit rounded-t-md" loading="lazy" src=${flags.png} alt="${name.common} flag" >
         </div>
         <div class="card__lower flex flex-col mt-6 px-5 pb-6 h-full">
           <p class="card__header font-bold pb-3">${name.common}</p>
@@ -286,14 +286,15 @@ let getBorders = (country = currentCountry) => {
             countryBorders.push(borderCountry)
         }
         countryBorders.forEach(countryName => {
-            html +=/*html*/ `<button onclick="renderDetailPage('${countryName}')" class=" gotoBorder bg-white py-2 px-4 rounded-md shadow-md font-medium flex items-center gap-x-3 transition hover:text-zinc-400"><span class="animate__animated animate__slideInDown">${countryName}</span></button>
+            html +=/*html*/ `<button onclick="renderDetailPage('${countryName}', true)" class=" gotoBorder bg-white py-2 px-4 rounded-md shadow-md font-medium flex items-center gap-x-3 hover:text-zinc-400"><span class="animate__animated animate__slideInDown">${countryName}</span></button>
             `
         })
     }
     return html;
 }
 
-let renderDetailPage = (countryName) => {
+let renderDetailPage = (country, fromBorders = false) => {
+    let countryName = !fromBorders ? country.getAttribute('data-name') : country
     mainEle.innerHTML = ``
     detailPageActive = !detailPageActive
 
@@ -328,7 +329,7 @@ let renderDetailPage = (countryName) => {
     
             <section class="countryDataCtn mt-28 lg:mt-36 lg:flex gap-x-28 px-9 pb-6 mx-auto">
                 <div class="countryDataCtn__imgCtn w-full md:w-[60%] lg:w-[50%] ">
-                    <img class="w-full" src=${flags.png} alt="">
+                    <img class="w-full" src=${flags.png} alt="${name.common} flag">
                 </div>
     
                 <div class="infoCtn flex flex-col gap-y-8 lg:gap-y-10 lg:w-[45%]">

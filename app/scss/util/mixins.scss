@@ -3,6 +3,6 @@
 
 // This is where mixins will be created . 
 
-@mixin transition {
-    transition: all .07s ease-in-out !important;
+@mixin transition($prop: all) {
+    transition: $prop .2s ease-in-out !important;
 }

@@ -52,10 +52,11 @@
 
     .card {
         cursor: pointer !important;
+        @include transition(transform);
 
 
         &:hover {
-            transform: scale(1.01) !important;
+            transform: scale(1.05) !important;
         }
     }
 }
@@ -119,6 +120,10 @@ body {
     }
 }
 
-.transition {
-    transition: all .15s ease-in !important;
+.gotoBorder {
+    @include transition(color);
+}
+
+#backBtn {
+    @include transition(color);
 }
